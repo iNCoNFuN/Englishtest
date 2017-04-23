@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainWindow">
 
-<head>
+<head ng-controller="HeadCtrl">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Acerca de English tests</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/index.css">
+  <title>About English tests</title>
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/render.js"></script>
+  <style media="screen">
+    body {
+      font-family: "{{fuente}}",sans-serif;
+    }
+  </style>
   <script type="text/javascript">
     var electron = require('electron');
     var shell = electron.shell;
     var ipc = electron.ipcRenderer;
   </script>
 </head>
-
 <body id="page-info">
   <main class="info-content">
-    <div class="alert alert-success" role="alert">
-      <center>
-        <h4 class="alert-heading">English tests</h4>
-        <p>
-          <strong>Version 0.0.1</strong><br>
-          <small>Built with love by <a href="#" onclick="shell.openExternal('https://github.com/iNCoNFuN/englishtest')">Manuel Galeote</a></small>
-        </p>
-        <p><a href="#" onclick="ipc.sendSync('closeAcercadeWindow')">Close window</a></p>
+    <div class="panel">
+      <div class="heading">
+        <span class="icon mif-organization"></span>
+        <span class="title">English Tests</span>
+      </div>
+      <div class="content">
+        <center>
+          <h4 class="alert-heading"></h4>
+          <p>English tests <strong><small>V. 0.0.1</strong></small>
+          </p>
+          <p><small>Built with love by <a href="#" onclick="shell.openExternal('https://github.com/iNCoNFuN/englishtest')">Manuel Galeote</a></small>
+          </p>
+
+          <div class="text-center">
+            <button class="button primary" onclick="ipc.sendSync('closeAcercadeWindow')">Close window</button>
+          </div>
+          <br />
+        </center>
+      </div>
     </div>
   </main>
 </body>

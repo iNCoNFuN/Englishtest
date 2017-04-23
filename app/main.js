@@ -3,6 +3,12 @@ var BrowserWindow = electron.BrowserWindow;
 var app = electron.app;
 var ipc = electron.ipcMain;
 
+
+// Quit when all windows are closed
+app.on('window-all-closed', function() {
+    app.quit();
+});
+
 // Event for when electron is ready
 app.on('ready', function() {
 
@@ -14,15 +20,10 @@ app.on('ready', function() {
   appWindow.loadURL('file://' + __dirname + '/index.html');
 
 
-  // Load up the main window
-  questionsWindow = new BrowserWindow({
-    show: false
-  });
-  questionsWindow.loadURL('file://' + __dirname + '/questions.html');
 
   acercadeWindow = new BrowserWindow({
-    width: 384,
-    height: 232,
+    width: 392,
+    height: 202,
     show: false,
     transparent: true,
     frame: false
@@ -44,7 +45,7 @@ app.on('ready', function() {
     // }, 1000);
   });
 
-//Abrir acercadeWindow
+//Open acercadeWindow
 ipc.on('abrirAcercadeWindow', function(event, arg){
   event.returnValue=''; //Turn back an empty value
   acercadeWindow.show();
@@ -55,15 +56,34 @@ ipc.on('closeAcercadeWindow', function(event, arg){
   acercadeWindow.hide();
 });
 
-//Abrir questionsWindow
+//Open questionsWindow
 ipc.on('abrirQuestionsWindow', function(event, arg){
   event.returnValue=''; //Turn back an empty value
-  questionsWindow.show();
+  // Load up the main window
+  questionsWindow = new BrowserWindow({
+    // show: false
+  });
+  questionsWindow.loadURL('file://' + __dirname + '/questions.html');
+  // questionsWindow.show();
 });
 //Close questionsWindow
 ipc.on('closeQuestionsWindow', function(event, arg){
   event.returnValue=''; //Turn back an empty value
-  questionsWindow.hide();
+  // questionsWindow.hide();
 });
+
+
+//Cerrar completamente la app al pulsar la X
+appWindow.on('close', function() {
+  // questionsWindow = null; // Para que no funcione el evento onClose que no permitiría el cierre
+  // appWindow = null;
+  app.quit();
+});
+
+// //Avoid destroying window
+// questionsWindow.on('close', function(event) {
+//   event.preventDefault();
+//   questionsWindow.hide();
+// });
 
 });

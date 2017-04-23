@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainWindow">
 
-<head>
+<head ng-controller="HeadCtrl">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Questions</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/render.js"></script>
+  <style media="screen">
+    body {
+      font-family: "{{fuente}}",
+      sans-serif;
+    }
+  </style>
   <script type="text/javascript">
+    var electron = require('electron');
+    var shell = electron.shell;
+    var ipc = electron.ipcRenderer;
   </script>
 </head>
 
@@ -30,7 +40,7 @@
             <div class="card-block">
               <h4 class="card-title">Question 1</h4>
               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Next</a>
             </div>
           </div>
 
@@ -38,6 +48,7 @@
       </div>
     </div>
   </main>
+  <script src="js/render.js"></script>
   <script src="tests/test_000001.js" charset="utf-8"></script>
 </body>
 

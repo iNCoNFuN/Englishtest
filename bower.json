@@ -1,0 +1,23 @@
+{
+  "name": "EnglishTest",
+  "description": "",
+  "main": "app/main.js",
+  "authors": [
+    "Manuel <inconfunsion@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/iNCoNFuN/Englishtest",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-material": "^1.1.4"
+  }
+}

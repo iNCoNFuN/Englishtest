@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'GloriaHallelujah';
+  font-style: normal;
+  font-weight: 400;
+  src: local('GloriaHallelujah'), local('GloriaHallelujah'), url("../fonts/GloriaHallelujah/GloriaHallelujah.ttf") format('truetype');
+}
