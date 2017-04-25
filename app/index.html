@@ -7,11 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>English tests</title>
   <link rel="stylesheet" href="css/app.css">
+  <script type="text/javascript">
+    var eRequire = require;
+    var dirName = __dirname;
+    var dataLocation = require('path').resolve(__dirname,'..','data','data.json');
+  </script>
   <script src="js/render.js"></script>
   <style media="screen">
     body {
-      font-family: "{{fuente}}",
-      sans-serif;
+      font-family: "{{fuente}}",sans-serif;
     }
   </style>
   <script type="text/javascript">
@@ -21,20 +25,38 @@
   </script>
 </head>
 
-<body id="page-info" ng-controller="AppCtrl">
+<body id="page-info" ng-controller="AppCtrl" class="bg-lightOrange">
   <main class="info-content">
 
-    <div class="app-bar">
+    <!-- <nav class="navbar navbar-inverse bg-primary"> -->
+
+
+    <nav class="navbar navbar-toggleable navbar-inverse bg-primary navbar-light bg-faded">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#" onclick="ipc.sendSync('abrirQuestionsWindow')">Test</a></li>
+          <span class="app-bar-divider"></span>
+          <li class="nav-item"><a class="nav-link" href="#">Make test</a></li>
+          <span class="app-bar-divider"></span>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="ipc.sendSync('abrirSettingsWindow')">Settings</a></li>
+          <span class="app-bar-divider"></span>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="ipc.sendSync('abrirAcercadeWindow')">About ...</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- <div class="app-bar">
       <ul class="app-bar-menu">
         <li><a href="#" onclick="ipc.sendSync('abrirQuestionsWindow')">Test</a></li>
         <span class="app-bar-divider"></span>
         <li><a href="#">Make test</a></li>
         <span class="app-bar-divider"></span>
-        <li><a href="#">Settings</a></li>
+        <li><a href="#" onclick="ipc.sendSync('abrirSettingsWindow')">Settings</a></li>
         <span class="app-bar-divider"></span>
         <li><a href="#" onclick="ipc.sendSync('abrirAcercadeWindow')">About ...</a></li>
       </ul>
-    </div>
+    </div> -->
+
     <center>
       <br>
       <h1>English tests</h1>
@@ -44,6 +66,16 @@
         <strong>Version 0.0.1</strong><br>
       </p>
     </center>
+    <form class="form-inline">
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Language</label>
+    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+      <option selected>English</option>
+      <option value="1">Spanish</option>
+    </select>
+
+
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  </form>
 
   </main>
 

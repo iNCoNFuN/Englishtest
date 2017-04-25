@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainWindow">
+
+<head ng-controller="HeadCtrl">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Settings</title>
+  <link rel="stylesheet" href="css/app.css">
+  <script type="text/javascript">
+    var eRequire = require;
+    var dirName = __dirname;
+    var dataLocation = require('path').resolve(__dirname,'..','data','data.json');
+  </script>
+  <script src="js/render.js"></script>
+  <style media="screen">
+    body {
+      font-family: "{{fuente}}",sans-serif;
+    }
+  </style>
+  <script type="text/javascript">
+    var electron = require('electron');
+    var shell = electron.shell;
+    var ipc = electron.ipcRenderer;
+  </script>
+</head>
+
+<body id="page-info" ng-controller="AppCtrl" class="bg-lightOrange">
+  <main class="info-content">
+
+
+    <center>
+      <br>
+      <h1>Settings</h1>
+      <hr>
+      <p>
+        Welcome to English tests.<br>
+        <strong>Version 0.0.1</strong><br>
+      </p>
+    </center>
+
+  </main>
+
+</body>
+
+</html>

@@ -12,14 +12,12 @@ app.on('window-all-closed', function() {
 // Event for when electron is ready
 app.on('ready', function() {
 
-  var appWindow, questionsWindow, acercadeWindow;
+  var appWindow, questionsWindow,settingsWindow, acercadeWindow;
   appWindow = new BrowserWindow({
     show: false
   });
   // Load up the main window
   appWindow.loadURL('file://' + __dirname + '/index.html');
-
-
 
   acercadeWindow = new BrowserWindow({
     width: 392,
@@ -36,13 +34,12 @@ app.on('ready', function() {
   // Do the magic when the app is ready to show
   appWindow.once('ready-to-show', function() {
     appWindow.show(); //Show the main window
-    //questionsWindow.show(); //Show the questions window
     // setTimeout(function() {
     //   acercadeWindow.show(); //Show it up after one second
-    //   // setTimeout(function() {
-    //   //   acercadeWindow.hide(); //Hide it up after three
-    //   // }, 3000);
-    // }, 1000);
+    //   setTimeout(function() {
+    //     acercadeWindow.hide(); //Hide it up after three
+    //   }, 2000);
+    // }, 500);
   });
 
 //Open acercadeWindow
@@ -72,18 +69,17 @@ ipc.on('closeQuestionsWindow', function(event, arg){
   // questionsWindow.hide();
 });
 
+//Open settingsWindow
+ipc.on('abrirSettingsWindow', function(event, arg){
+  event.returnValue=''; //Turn back an empty value
+  settingsWindow = new BrowserWindow({});
+  settingsWindow.loadURL('file://' + __dirname + '/settings.html');
+});
 
 //Cerrar completamente la app al pulsar la X
 appWindow.on('close', function() {
-  // questionsWindow = null; // Para que no funcione el evento onClose que no permitiría el cierre
-  // appWindow = null;
   app.quit();
 });
 
-// //Avoid destroying window
-// questionsWindow.on('close', function(event) {
-//   event.preventDefault();
-//   questionsWindow.hide();
-// });
 
 });
